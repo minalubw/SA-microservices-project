@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>SAProject</groupId>
-    <artifactId>Avatar</artifactId>
+    <artifactId>AvatarService</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Avatar</name>
     <description>Avatar</description>
