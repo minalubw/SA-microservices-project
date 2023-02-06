@@ -1,7 +1,8 @@
 spring:
   application:
-    name:AvatarService
+    name: AvatarService
   cloud:
     config:
-      url:http://localhost:7077
-  
+      url: http://localhost:7077
+server:
+  port: 7081

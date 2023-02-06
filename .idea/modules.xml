@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/AvatarService/AvatarService.iml" filepath="$PROJECT_DIR$/AvatarService/AvatarService.iml" />
       <module fileurl="file://$PROJECT_DIR$/ConfigServer/ConfigServer.iml" filepath="$PROJECT_DIR$/ConfigServer/ConfigServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/ElementService/ElementService.iml" filepath="$PROJECT_DIR$/ElementService/ElementService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-service/SA-Euruka.iml" filepath="$PROJECT_DIR$/eureka-service/SA-Euruka.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/SA-Project.iml" filepath="$PROJECT_DIR$/.idea/SA-Project.iml" />
       <module fileurl="file://$PROJECT_DIR$/TeacherService/TeacherService.iml" filepath="$PROJECT_DIR$/TeacherService/TeacherService.iml" />
     </modules>
