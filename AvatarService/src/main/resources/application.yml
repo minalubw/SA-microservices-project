@@ -1,0 +1,10 @@
+server:
+  port: 7081
+
+spring:
+  application:
+    name:AvatarService
+  cloud:
+    config:
+      uri:http://localhost:7077
+
