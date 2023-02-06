@@ -1,5 +1,8 @@
 spring:
-  profiles:
-    active: native
+    application:
+        name: ConfigServer
+    cloud:
+        config:
+          server:
 server:
     port: 7077

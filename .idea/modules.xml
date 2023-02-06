@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AvatarService/AvatarService.iml" filepath="$PROJECT_DIR$/AvatarService/AvatarService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConfigServer/ConfigServer.iml" filepath="$PROJECT_DIR$/ConfigServer/ConfigServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ElementService/ElementService.iml" filepath="$PROJECT_DIR$/ElementService/ElementService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SA-Project.iml" filepath="$PROJECT_DIR$/.idea/SA-Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TeacherService/TeacherService.iml" filepath="$PROJECT_DIR$/TeacherService/TeacherService.iml" />
+    </modules>
+  </component>
+</project>

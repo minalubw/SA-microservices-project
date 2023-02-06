@@ -13,7 +13,7 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
-@NoArgsConstructor
+
 @AllArgsConstructor
 @Entity
 @Document(collection = "schools")
