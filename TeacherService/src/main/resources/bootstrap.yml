@@ -1,11 +1,11 @@
 spring:
-   cloud:
-      config:
-        url: http://localhost:7077
-   application:
-     name: TeacherServices
-server:
-  port: 7072
+  config:
+    import:
+      optional:configserver:http://localhost:8888
+
+  application:
+     name: TeacherService
+
 
 eureka:
   client:

@@ -1,11 +1,9 @@
 spring:
+  config:
+    import:
+      optional:configserver:http://localhost:8888
   application:
     name: AvatarService
-  cloud:
-    config:
-      url: http://localhost:7077
-server:
-  port: 7081
 eureka:
   client:
     serviceUrl:
