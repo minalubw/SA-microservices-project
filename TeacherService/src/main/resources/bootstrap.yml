@@ -1,6 +1,15 @@
 spring:
-  application:
-     name: TeacherService
-cloud:
-  config:
-    url: http://localhost:7077
+   cloud:
+      config:
+        url: http://localhost:7077
+   application:
+     name: TeacherServices
+server:
+  port: 7072
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+

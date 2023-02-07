@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import saproject.elementservice.domain.Element;
-import saproject.elementservice.domain.Type;
 import saproject.elementservice.dto.ElementDto;
 import saproject.elementservice.service.IElementService;
 

@@ -3,9 +3,9 @@ spring:
         config:
             url:http://localhost:7077
     application:
-        name: ElementService
+        name: UserService
 server:
-    port: 7074
+    port: 7070
 
 eureka:
     client:
