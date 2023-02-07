@@ -3,11 +3,15 @@ spring:
         config:
             url:http://localhost:7077
     application:
-        name: ElementService
+        name: StudentService
 server:
-    port: 7074
+    port: 7073
 
 eureka:
     client:
         serviceUrl:
             defaultZone: http://localhost:8761/eureka/
+
+
+
+

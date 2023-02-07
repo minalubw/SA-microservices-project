@@ -16,4 +16,5 @@ public class Reward {
     private String name;
     private int quantity;
     private Type type;
+    private int price;
 }

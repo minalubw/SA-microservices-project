@@ -13,8 +13,8 @@ public class StudentController {
     @Autowired
     private IStudentService studentService;
 
-@PostMapping ("/add")
-public Student addStudent(@RequestBody Student student) {
+    @PostMapping ("/add")
+    public Student addStudent(@RequestBody Student student) {
     return studentService.addStudent(student);
 }
 

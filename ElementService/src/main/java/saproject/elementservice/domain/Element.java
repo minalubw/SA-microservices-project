@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Element {
     @Id
     private String elementId;
-    private Type type;
+    private ElementType type;
     private int price;
 
 

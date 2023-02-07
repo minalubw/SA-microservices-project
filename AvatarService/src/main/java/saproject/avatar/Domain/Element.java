@@ -1,4 +1,4 @@
-package com.swaproject.swaproject.domains;
+package saproject.avatar.Domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,11 +9,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "reward")
-public class Reward {
+public class Element {
     @Id
-    private Integer id;
-    private String name;
-    private int quantity;
-    private RewardType rewardType;
+    private String elementId;
+    private ElementType type;
+    private int price;
+
+
 }

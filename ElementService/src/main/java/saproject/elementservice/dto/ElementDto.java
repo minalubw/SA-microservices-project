@@ -1,15 +1,15 @@
 package saproject.elementservice.dto;
 
-import saproject.elementservice.domain.Type;
+import saproject.elementservice.domain.ElementType;
 
 public class ElementDto {
 
     private String elementId;
-    private Type type;
+    private ElementType type;
     private int price;
 
     public ElementDto(){}
-    public ElementDto(String elementId, Type type, int price) {
+    public ElementDto(String elementId, ElementType type, int price) {
         this.elementId = elementId;
         this.type = type;
         this.price = price;
@@ -23,11 +23,12 @@ public class ElementDto {
         this.elementId = elementId;
     }
 
-    public Type getType() {
+
+    public ElementType getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(ElementType type) {
         this.type = type;
     }
 
