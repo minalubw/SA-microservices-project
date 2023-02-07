@@ -7,6 +7,7 @@ import saproject.teacherservice.ExceptionHandling.TeacherException;
 import saproject.teacherservice.domain.Teacher;
 import saproject.teacherservice.service.TeacherService;
 @RestController
+
 @RequestMapping("/teacher")
 public class TeacherController {
     @Autowired
