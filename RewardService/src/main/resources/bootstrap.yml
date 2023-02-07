@@ -4,8 +4,7 @@ spring:
             optional:configserver:http://localhost:8888
     application:
         name: RewardService
-server:
-    port: 7076
+
 
 eureka:
     client:

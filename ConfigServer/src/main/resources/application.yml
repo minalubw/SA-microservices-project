@@ -3,5 +3,5 @@ spring:
         config:
             server:
                 git:
-                    uri: https://github.com/michaelhenok/SA-Project/config
+                    uri: C:\Users\alaza\Documents\GitHub\SA-Project\config
 server.port: 8888

@@ -4,9 +4,8 @@ spring:
       optional:configserver:http://localhost:8888
 
   application:
-     name: TeacherServices
-server:
-  port: 7072
+     name: TeacherService
+
 
 eureka:
   client:
