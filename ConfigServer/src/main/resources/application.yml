@@ -1,10 +1,7 @@
 spring:
-    application:
-        name: ConfigServer
-
-    profiles:
-        active: native
-server:
-    port: 7077
-
-
+    cloud:
+        config:
+            server:
+                git:
+                    uri: https://github.com/michaelhenok/SA-Project
+server.port: 8888
