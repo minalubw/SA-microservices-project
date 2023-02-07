@@ -1,0 +1,8 @@
+spring:  
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: Avatar
+  main:
+    allow-bean-definition-overriding: true
