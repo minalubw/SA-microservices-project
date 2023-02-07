@@ -1,6 +1,4 @@
 spring:
-  application:
-     name: TeacherService
-cloud:
-  config:
-    url: http://localhost:7077
+   cloud:
+      config:
+        url: http://localhost:7077
