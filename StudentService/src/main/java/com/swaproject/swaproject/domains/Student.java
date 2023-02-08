@@ -22,6 +22,7 @@ public class Student {
     private Avatar avatar;
     private List<Reward> rewards;
     private  School school;
+    private User user;
     private TeachingClass teachingClass;
 
 

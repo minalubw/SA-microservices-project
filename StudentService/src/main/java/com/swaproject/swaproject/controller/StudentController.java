@@ -4,6 +4,7 @@ import com.swaproject.swaproject.domains.Student;
 import com.swaproject.swaproject.services.IStudentService;
 import com.swaproject.swaproject.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,11 +12,15 @@ import org.springframework.web.bind.annotation.*;
 public class StudentController {
 
     @Autowired
+    private KafkaTemplate<String, String> kafkaTemplate;
+
+    @Autowired
     private IStudentService studentService;
 
     @PostMapping ("/add")
     public Student addStudent(@RequestBody Student student) {
-    return studentService.addStudent(student);
+        kafkaTemplate.send("student", student.getFName() + "," + student.getLName() + "," + student.getClass());
+        return studentService.addStudent(student);
 }
 
     @GetMapping("/{StudentNumber}")
