@@ -1,19 +1,15 @@
 package com.swaproject.swaproject.domains;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Document(collection = "students")
 @Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Student {
@@ -24,8 +20,9 @@ public class Student {
     private String lastName;
     private int score;
     private Avatar avatar = new Avatar();
-    private List<Reward> rewards = new ArrayList<>();
+    private Rewards rewards;
     private School school;
     private TeachingClass teachingClass;
+
 
 }

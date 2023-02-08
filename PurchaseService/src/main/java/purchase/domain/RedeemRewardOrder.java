@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RewardOrder {
+public class RedeemRewardOrder {
     private String studentNumber;
     private String elementId;
-
-    private Integer rewardId;
+    private String rewardId;
 }

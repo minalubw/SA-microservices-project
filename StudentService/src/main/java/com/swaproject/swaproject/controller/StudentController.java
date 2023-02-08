@@ -2,7 +2,6 @@ package com.swaproject.swaproject.controller;
 
 import com.swaproject.swaproject.domains.Student;
 import com.swaproject.swaproject.services.IStudentService;
-import com.swaproject.swaproject.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

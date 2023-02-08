@@ -19,7 +19,7 @@ public class RewardService implements IRewardService{
     }
 
     @Override
-    public Reward viewReward(Integer id) {
+    public Reward viewReward(String id) {
         Optional<Reward> reward =  rewardRepository.findById(id);
         if(reward.isPresent()){
             return reward.get();
@@ -29,7 +29,7 @@ public class RewardService implements IRewardService{
     }
 
     @Override
-    public Reward updateReward(Integer id, Reward reward) {
+    public Reward updateReward(String id, Reward reward) {
         Optional<Reward> rewardToBeUpdated = rewardRepository.findById(id);
         if(rewardToBeUpdated.isPresent()){
             rewardToBeUpdated.get().setName(reward.getName());
@@ -42,13 +42,13 @@ public class RewardService implements IRewardService{
     }
 
     @Override
-    public String deleteReward(Integer id) {
+    public String deleteReward(String id) {
         Optional<Reward> rewardToBeDeleted = rewardRepository.findById(id);
         if(rewardToBeDeleted.isPresent()){
             rewardRepository.delete(rewardToBeDeleted.get());
             return "Reward Deleted!";
         }
         else
-            throw new RewardNotFoundException("Reward with + " + id + " not found!");
+            throw new RewardNotFoundException("Reward with " + id + " not found!");
     }
 }

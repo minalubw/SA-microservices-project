@@ -2,11 +2,9 @@ package com.swaproject.swaproject.services;
 
 import com.swaproject.swaproject.dao.StudentRepository;
 import com.swaproject.swaproject.domains.Student;
-import com.swaproject.swaproject.domains.StudentDto;
 import com.swaproject.swaproject.exception.StudentNotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.util.Optional;
 
@@ -29,6 +27,9 @@ public class StudentService implements IStudentService{
             stdnt.get().setLastName(student.getLastName());
             stdnt.get().setScore(student.getScore());
             stdnt.get().setAvatar(student.getAvatar());
+            stdnt.get().setRewards(student.getRewards());
+            stdnt.get().setSchool(student.getSchool());
+            stdnt.get().setTeachingClass(student.getTeachingClass());
             return studentRepository.save(stdnt.get());
         }
         else

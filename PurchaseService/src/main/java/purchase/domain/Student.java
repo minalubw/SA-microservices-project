@@ -1,9 +1,7 @@
 package purchase.domain;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,6 +10,8 @@ import java.util.List;
 
 
 @Document(collection = "students")
+@Getter
+@Setter
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,8 +23,9 @@ public class Student {
     private String lastName;
     private int score;
     private Avatar avatar = new Avatar();
-    private List<Reward> rewards = new ArrayList<>();
+    private Rewards rewards;
     private School school;
     private TeachingClass teachingClass;
+
 
 }

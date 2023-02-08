@@ -17,9 +17,9 @@ public class RewardController {
     @Autowired
     private ModelMapper modelMapper;
 
-    @GetMapping("/reward/{id}")
-    public ResponseEntity<Reward> viewReward(@PathVariable("id") Integer id){
-        return ResponseEntity.ok().body(rewardService.viewReward(id));
+    @GetMapping("/reward/{rewardId}")
+    public ResponseEntity<Reward> viewReward(@PathVariable("rewardId") String rewardId){
+        return ResponseEntity.ok().body(rewardService.viewReward(rewardId));
     }
 
     @PostMapping("/reward")
@@ -28,12 +28,12 @@ public class RewardController {
     }
 
     @PutMapping("/reward/{id}")
-    public ResponseEntity<RewardDto> updateReward(@PathVariable("id") Integer id, @RequestBody Reward reward){
+    public ResponseEntity<RewardDto> updateReward(@PathVariable("id") String id, @RequestBody Reward reward){
         return ResponseEntity.ok().body(modelMapper.map(rewardService.updateReward(id, reward), RewardDto.class));
     }
 
     @DeleteMapping("/reward/{id}")
-    public ResponseEntity<String> removeReward(@PathVariable("id") Integer id){
+    public ResponseEntity<String> removeReward(@PathVariable("id") String id){
         return ResponseEntity.ok().body(rewardService.deleteReward(id));
     }
 }
