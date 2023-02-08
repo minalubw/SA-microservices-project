@@ -72,7 +72,7 @@ public class PurchaseService implements IPurchaseService{
             }
             else{
                 student.setScore(student.getScore() - reward.getPrice());
-                student.getRewards().addReward(reward);
+                student.addReward(reward);
             }
         }
         return student;
@@ -84,7 +84,7 @@ public class PurchaseService implements IPurchaseService{
             throw new PurchaseException("Student or Element doesn't exist!");
         }
         else{
-            List<Reward> rewards = student.getRewards().getRewardsList().stream()
+            List<Reward> rewards = student.getRewardList().stream()
                                         .filter(rew->rew.getRewardId().equalsIgnoreCase(rewardId)).collect(Collectors.toList());
             Reward reward = rewards.get(0);
             if(reward == null){
@@ -94,7 +94,7 @@ public class PurchaseService implements IPurchaseService{
                 throw new PurchaseException("Reward type is not element!");
             }
             if(reward.getQuantity() == 0){
-                student.getRewards().removeReward(reward);
+                student.removeReward(reward);
                 throw new PurchaseException("Reward doesnt have enough quantity!");
 
             }
@@ -103,12 +103,12 @@ public class PurchaseService implements IPurchaseService{
                 student.setScore(student.getScore() + toBeDeleted.getPrice());
                 student.getAvatar().removeElement(toBeDeleted);
                 student.getAvatar().addElement(element);
-                student.getRewards().updateRewardQuantity(rewardId);
+                student.updateRewardQuantity(rewardId);
                 return student;
             }
             else {
                 student.getAvatar().addElement(element);
-                student.getRewards().updateRewardQuantity(rewardId);
+                student.updateRewardQuantity(rewardId);
                 return student;
             }
         }
@@ -124,7 +124,7 @@ public class PurchaseService implements IPurchaseService{
     }
 
     private boolean checkIfRewardTypeExists(Student student, Reward reward){
-        for(Reward r: student.getRewards().getRewardsList()){
+        for(Reward r: student.getRewardList()){
             if(r.getType().equals(reward.getType()))
                 return true;
         }

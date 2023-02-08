@@ -24,12 +24,6 @@ public class Rewards {
         this.rewardsList.remove(reward);
     }
 
-    public void updateRewardQuantity(String rewardId){
-        for (Reward r: rewardsList) {
-            if(r.getRewardId().equalsIgnoreCase(rewardId)){
-                r.setQuantity(r.getQuantity()-1);
-            }
-        }
-    }
+
 
 }

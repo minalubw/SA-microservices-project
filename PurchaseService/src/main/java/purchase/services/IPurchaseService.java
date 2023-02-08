@@ -9,4 +9,5 @@ public interface IPurchaseService {
     Student removeElement(Student student, String elementId);
     Student buyReward(Student student, Reward reward);
     Student redeemReward(Student student, Element element, String rewardId);
+
 }

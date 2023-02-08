@@ -27,7 +27,7 @@ public class StudentService implements IStudentService{
             stdnt.get().setLastName(student.getLastName());
             stdnt.get().setScore(student.getScore());
             stdnt.get().setAvatar(student.getAvatar());
-            stdnt.get().setRewards(student.getRewards());
+            stdnt.get().setRewardList(student.getRewardList());
             stdnt.get().setSchool(student.getSchool());
             stdnt.get().setTeachingClass(student.getTeachingClass());
             return studentRepository.save(stdnt.get());

@@ -10,9 +10,9 @@ import java.util.List;
 
 
 @Document(collection = "students")
+@Data
 @Getter
 @Setter
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Student {
@@ -23,9 +23,25 @@ public class Student {
     private String lastName;
     private int score;
     private Avatar avatar = new Avatar();
-    private Rewards rewards;
+    private List<Reward> rewardList = new ArrayList<>();
     private School school;
     private TeachingClass teachingClass;
 
+    public void addReward(Reward reward){
+        this.rewardList.add(reward);
+        System.out.println("Adding reward..."+ reward);
+    }
+
+    public void removeReward(Reward reward){
+        this.rewardList.remove(reward);
+    }
+
+    public void updateRewardQuantity(String rewardId){
+        for (Reward r: rewardList) {
+            if(r.getRewardId().equalsIgnoreCase(rewardId)){
+                r.setQuantity(r.getQuantity()-1);
+            }
+        }
+    }
 
 }

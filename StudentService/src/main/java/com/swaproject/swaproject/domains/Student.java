@@ -5,6 +5,9 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Document(collection = "students")
 @Data
@@ -20,9 +23,18 @@ public class Student {
     private String lastName;
     private int score;
     private Avatar avatar = new Avatar();
-    private Rewards rewards;
+    private List<Reward> rewardList = new ArrayList<>();
     private School school;
     private TeachingClass teachingClass;
+
+    public void addReward(Reward reward){
+        this.rewardList.add(reward);
+        System.out.println("Adding reward..."+ reward);
+    }
+
+    public void removeReward(Reward reward){
+        this.rewardList.remove(reward);
+    }
 
 
 }
