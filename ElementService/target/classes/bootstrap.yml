@@ -4,6 +4,7 @@ spring:
             optional:configserver:http://localhost:8888
     application:
         name: ElementService
+
 server:
     port: 7074
 

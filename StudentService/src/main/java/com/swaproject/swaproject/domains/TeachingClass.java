@@ -1,12 +1,11 @@
 package com.swaproject.swaproject.domains;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Value;
+import lombok.*;
 
 
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 class TeachingClass {
 
     private String year;

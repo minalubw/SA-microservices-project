@@ -1,30 +1,40 @@
 package com.swaproject.swaproject.domains;
 
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Data
+
 @Document(collection = "students")
+@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Student {
 
     @Id
     private String studentNumber;
-    private String fName;
-    private String lName;
+    private String firstName;
+    private String lastName;
     private int score;
-    private Avatar avatar;
-    private List<Reward> rewards;
-    private  School school;
+    private Avatar avatar = new Avatar();
+    private List<Reward> rewardList = new ArrayList<>();
+    private School school;
     private TeachingClass teachingClass;
 
+    public void addReward(Reward reward){
+        this.rewardList.add(reward);
+        System.out.println("Adding reward..."+ reward);
+    }
 
+    public void removeReward(Reward reward){
+        this.rewardList.remove(reward);
+    }
 
 
 }

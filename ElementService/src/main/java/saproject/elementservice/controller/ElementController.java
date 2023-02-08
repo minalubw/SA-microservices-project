@@ -17,9 +17,9 @@ public class ElementController {
     private ModelMapper modelMapper;
 
     @GetMapping("/element/{elementId}")
-    public ResponseEntity<ElementDto> viewElement(@PathVariable("elementId") String elementId){
+    public ResponseEntity<Element> viewElement(@PathVariable("elementId") String elementId){
         Element element = elementService.viewElement(elementId);
-        return ResponseEntity.ok().body(modelMapper.map(element, ElementDto.class));
+        return ResponseEntity.ok().body(element);
     }
 
     @PostMapping("/element")

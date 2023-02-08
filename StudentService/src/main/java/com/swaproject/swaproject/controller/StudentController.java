@@ -2,7 +2,6 @@ package com.swaproject.swaproject.controller;
 
 import com.swaproject.swaproject.domains.Student;
 import com.swaproject.swaproject.services.IStudentService;
-import com.swaproject.swaproject.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,11 +14,11 @@ public class StudentController {
 
     @PostMapping ("/add")
     public Student addStudent(@RequestBody Student student) {
-    return studentService.addStudent(student);
-}
+       return studentService.addStudent(student);
+    }
 
-    @GetMapping("/{StudentNumber}")
-    public Student getStudent(@PathVariable String studentNumber){
+    @GetMapping("/{studentNumber}")
+    public Student getStudent(@PathVariable("studentNumber") String studentNumber){
         return studentService.viewStudent(studentNumber);
     }
 
@@ -32,9 +31,9 @@ public class StudentController {
 
 
 
-    @PutMapping("/update/")
-    public void updateStudent(@RequestBody Student student){
-        studentService.updateStudent(student);
+    @PutMapping("/update")
+    public Student updateStudent(@RequestBody Student student){
+        return studentService.updateStudent(student);
 }
 
 
