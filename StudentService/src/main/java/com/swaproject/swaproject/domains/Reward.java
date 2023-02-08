@@ -9,9 +9,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "reward")
 public class Reward {
-    @Id
+
     private Integer id;
     private String name;
     private int quantity;

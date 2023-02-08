@@ -3,7 +3,7 @@ package saproject.rewardservice.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import saproject.rewardservice.domain.Type;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

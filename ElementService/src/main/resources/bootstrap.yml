@@ -1,9 +1,7 @@
 spring:
-    cloud:
-        config:
-            url:http://localhost:7077
     application:
         name: ElementService
+
 server:
     port: 7074
 

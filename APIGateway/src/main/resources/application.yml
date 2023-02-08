@@ -32,7 +32,10 @@ spring:
         uri: lb://UserService
         predicates:
           - Path=/user/**
-            
+      - id: PurchaseService
+        uri: lb://PurchaseService
+        predicates:
+          - Path=/order/**
 server:
   port: 8080
 

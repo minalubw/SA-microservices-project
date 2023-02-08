@@ -18,8 +18,8 @@ public class RewardController {
     private ModelMapper modelMapper;
 
     @GetMapping("/reward/{id}")
-    public ResponseEntity<RewardDto> viewReward(@PathVariable("id") Integer id){
-        return ResponseEntity.ok().body(modelMapper.map(rewardService.viewReward(id), RewardDto.class));
+    public ResponseEntity<Reward> viewReward(@PathVariable("id") Integer id){
+        return ResponseEntity.ok().body(rewardService.viewReward(id));
     }
 
     @PostMapping("/reward")

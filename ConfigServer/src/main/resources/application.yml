@@ -1,10 +1,2 @@
-spring:
-    application:
-        name: ConfigServer
-
-    profiles:
-        active: native
-server:
-    port: 7077
 
 

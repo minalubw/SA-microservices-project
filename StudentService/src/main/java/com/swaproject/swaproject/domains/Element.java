@@ -9,9 +9,9 @@ import org.springframework.data.annotation.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Element {
-    @Id
+
     private String elementId;
-    private RewardType type;
+    private ElementType type;
     private int price;
 
 

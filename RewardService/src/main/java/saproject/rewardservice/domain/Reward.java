@@ -15,6 +15,6 @@ public class Reward {
     private Integer id;
     private String name;
     private int quantity;
-    private Type type;
+    private RewardType type;
     private int price;
 }

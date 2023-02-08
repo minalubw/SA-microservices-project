@@ -25,13 +25,14 @@ public class StudentService implements IStudentService{
     public Student updateStudent(Student student) {
         Optional<Student> stdnt = studentRepository.findById(student.getStudentNumber());
         if(stdnt.isPresent()){
-            stdnt.get().setFName(student.getFName());
-            stdnt.get().setLName(student.getLName());
+            stdnt.get().setFirstName(student.getFirstName());
+            stdnt.get().setLastName(student.getLastName());
             stdnt.get().setScore(student.getScore());
             stdnt.get().setAvatar(student.getAvatar());
             return studentRepository.save(stdnt.get());
         }
-        throw new StudentNotFound("Student with id" + student.getStudentNumber() + "not found!");
+        else
+            throw new StudentNotFound("Student with id" + student.getStudentNumber() + "not found!");
     }
 
     @Override
