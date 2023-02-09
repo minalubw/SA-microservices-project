@@ -8,9 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SA-Euruka" />
-        <module name="ElementService" />
         <module name="TeacherService" />
         <module name="UserApplication" />
+        <module name="ElementService" />
         <module name="SchoolService" />
         <module name="StudentService" />
         <module name="AvatarService" />
