@@ -4,6 +4,8 @@ import com.swaproject.swaproject.domains.Student;
 import com.swaproject.swaproject.services.IStudentService;
 import com.swaproject.swaproject.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,28 +20,28 @@ public class StudentController {
     private IStudentService studentService;
 
     @PostMapping ("/add")
-    public Student addStudent(@RequestBody Student student) {
-        kafkaTemplate.send("student", student.getFirstName() + "," + student.getLastName() + "," + student.getClass());
-        return studentService.addStudent(student);
-}
+    public ResponseEntity<Student> addStudent(@RequestBody Student student) {
+//        kafkaTemplate.send("student", student.getFirstName() + "," + student.getLastName() + "," + student.getClass());
+        return new ResponseEntity<>(studentService.addStudent(student), HttpStatus.OK);
+    }
 
-    @GetMapping("/{StudentNumber}")
-    public Student getStudent(@PathVariable String studentNumber){
-        return studentService.viewStudent(studentNumber);
+    @GetMapping("/{studentNumber}")
+    public ResponseEntity<Student> getStudent(@PathVariable("studentNumber") String studentNumber){
+        return new ResponseEntity<>(studentService.viewStudent(studentNumber), HttpStatus.OK);
     }
 
 
 
     @DeleteMapping("/delete/{id}")
-    public void deleteStudent(@PathVariable String id){
-        studentService.deleteStudent(id);
+    public ResponseEntity<String> deleteStudent(@PathVariable String id){
+         return new ResponseEntity<>(studentService.deleteStudent(id), HttpStatus.OK);
     }
 
 
 
-    @PutMapping("/update/")
-    public void updateStudent(@RequestBody Student student){
-        studentService.updateStudent(student);
+    @PutMapping("/update")
+    public ResponseEntity<Student> updateStudent(@RequestBody Student student){
+        return new ResponseEntity<>(studentService.updateStudent(student), HttpStatus.OK);
 }
 
 

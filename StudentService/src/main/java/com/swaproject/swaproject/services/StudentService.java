@@ -37,14 +37,16 @@ public class StudentService implements IStudentService{
     }
 
     @Override
-    public void deleteStudent(String studentId) throws StudentNotFound  {
+    public String deleteStudent(String studentId) throws StudentNotFound  {
 
         Student student = studentRepository.findById(studentId).orElse(null);
         if (student == null) {
             throw new StudentNotFound("Student with Id Not Found");
         }
-        else
-        studentRepository.deleteById(studentId);
+        else {
+            studentRepository.deleteById(studentId);
+            return "Student deleted!";
+        }
     }
 
 

@@ -5,9 +5,9 @@ import saproject.avatar.ExceptionHandling.AvatarException;
 
 public interface IAvatarService {
      Avatar getAvatar(int id)throws AvatarException;
-     void addAvatar(Avatar avatar)throws AvatarException;
-     void deleteAvatar(int id)throws AvatarException;
-     void updateAvatar(Avatar avatar)throws AvatarException;
+     Avatar addAvatar(Avatar avatar)throws AvatarException;
+     String deleteAvatar(int id)throws AvatarException;
+     Avatar updateAvatar(Avatar avatar)throws AvatarException;
 
 
 }

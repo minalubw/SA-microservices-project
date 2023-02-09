@@ -114,6 +114,17 @@ public class PurchaseService implements IPurchaseService{
         }
     }
 
+    @Override
+    public Student giveReward(Student student, Reward reward) {
+        if(student == null || reward == null){
+            throw new PurchaseException("Student or Element doesn't exist!");
+        }
+        else {
+            student.getRewardList().add(reward);
+            return student;
+        }
+    }
+
 
     private Element checkIfElementTypeExists(Student student, Element element){
         for(Element e: student.getAvatar().getElementList()){

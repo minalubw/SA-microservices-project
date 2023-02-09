@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import saproject.rewardservice.domain.Reward;
 import saproject.rewardservice.dto.RewardDto;
 import saproject.rewardservice.service.IRewardService;
-
+@RequestMapping("/reward")
 @RestController
 public class RewardController {
     @Autowired
@@ -17,22 +17,22 @@ public class RewardController {
     @Autowired
     private ModelMapper modelMapper;
 
-    @GetMapping("/reward/{rewardId}")
+    @GetMapping("/{rewardId}")
     public ResponseEntity<Reward> viewReward(@PathVariable("rewardId") String rewardId){
         return ResponseEntity.ok().body(rewardService.viewReward(rewardId));
     }
 
-    @PostMapping("/reward")
-    public ResponseEntity<RewardDto> addReward(@RequestBody Reward reward){
-        return ResponseEntity.ok().body(modelMapper.map(rewardService.addReward(reward), RewardDto.class));
+    @PostMapping("/add")
+    public ResponseEntity<Reward> addReward(@RequestBody Reward reward){
+        return ResponseEntity.ok().body(rewardService.addReward(reward));
     }
 
-    @PutMapping("/reward/{id}")
-    public ResponseEntity<RewardDto> updateReward(@PathVariable("id") String id, @RequestBody Reward reward){
-        return ResponseEntity.ok().body(modelMapper.map(rewardService.updateReward(id, reward), RewardDto.class));
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Reward> updateReward(@PathVariable("id") String id, @RequestBody Reward reward){
+        return ResponseEntity.ok().body(rewardService.updateReward(id, reward));
     }
 
-    @DeleteMapping("/reward/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> removeReward(@PathVariable("id") String id){
         return ResponseEntity.ok().body(rewardService.deleteReward(id));
     }

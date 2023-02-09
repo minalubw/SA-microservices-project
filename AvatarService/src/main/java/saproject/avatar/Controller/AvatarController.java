@@ -1,6 +1,8 @@
 package saproject.avatar.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import saproject.avatar.Domain.Avatar;
 import saproject.avatar.Service.AvatarService;
@@ -12,40 +14,20 @@ public class AvatarController {
     @Autowired
     private AvatarService avatarService;
     @PostMapping("/add")
-    public String addAvatar(@RequestBody Avatar avatar) {
-        try{
-            System.out.println(avatar.toString());
-            avatarService.addAvatar(avatar);
-            return "Avatar added";
-        } catch (Exception e) {
-            return e.getMessage();
-        }
+    public ResponseEntity<Avatar> addAvatar(@RequestBody Avatar avatar) {
+       return new ResponseEntity<>(avatarService.addAvatar(avatar), HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")
-    public String deleteAvatar(@PathVariable int id) {
-        try{
-            avatarService.deleteAvatar(id);
-            return "Avatar deleted";
-        } catch (Exception e) {
-            return e.getMessage();
-        }
+    public ResponseEntity<String> deleteAvatar(@PathVariable int id) {
+       return new ResponseEntity<>(avatarService.deleteAvatar(id), HttpStatus.OK);
     }
     @PutMapping("/update")
-    public String updateAvatar(@RequestBody Avatar avatar) {
-        try{
-            avatarService.updateAvatar(avatar);
-            return "Avatar updated";
-        } catch (Exception e) {
-            return e.getMessage();
-        }
+    public ResponseEntity<Avatar> updateAvatar(@RequestBody Avatar avatar) {
+        return new ResponseEntity<>(avatarService.updateAvatar(avatar), HttpStatus.OK);
     }
     @GetMapping("/get/{id}")
-    public String getAvatar(@PathVariable int id) {
-        try{
-            return avatarService.getAvatar(id).toString();
-        } catch (Exception e) {
-            return e.getMessage();
-        }
+    public ResponseEntity<Avatar> getAvatar(@PathVariable int id) {
+       return new ResponseEntity<>(avatarService.getAvatar(id), HttpStatus.OK);
     }
 
 }

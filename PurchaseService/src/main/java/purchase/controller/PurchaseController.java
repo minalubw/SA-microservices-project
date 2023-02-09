@@ -35,7 +35,7 @@ public class PurchaseController {
     }
 
     @PutMapping("/reward/buy")
-    public Student buyReward(@RequestBody BuyRewardOrder rewardOrder){
+    public Student buyReward(@RequestBody RewardOrder rewardOrder){
         Student student = studentFeignClient.getStudent(rewardOrder.getStudentNumber());
         Reward reward = rewardFeignClient.getReward(rewardOrder.getRewardId());
         Student updated = purchaseService.buyReward(student, reward);
@@ -47,6 +47,14 @@ public class PurchaseController {
         Element element = elementFeignClient.getElement(redeemOrder.getElementId());
 
         Student updated = purchaseService.redeemReward(student, element, redeemOrder.getRewardId());
+        return studentFeignClient.updateStudent(updated);
+    }
+
+    @PutMapping("/teacher/givereward")
+    public Student giverReward(@RequestBody RewardOrder rewardOrder){
+        Student student = studentFeignClient.getStudent(rewardOrder.getStudentNumber());
+        Reward reward = rewardFeignClient.getReward(rewardOrder.getRewardId());
+        Student updated = purchaseService.giveReward(student, reward);
         return studentFeignClient.updateStudent(updated);
     }
 
@@ -62,7 +70,7 @@ public class PurchaseController {
         Student getStudent(@PathVariable("studentNumber") String studentNumber);
 
         @PutMapping("/student/update")
-        public Student updateStudent(@RequestBody Student student);
+        Student updateStudent(@RequestBody Student student);
     }
 
     @FeignClient("RewardService")

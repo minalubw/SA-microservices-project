@@ -3,6 +3,8 @@ package saproject.teacherservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 import saproject.teacherservice.ExceptionHandling.TeacherException;
@@ -21,43 +23,22 @@ public class TeacherController {
     private TeacherService teacherService;
 
     @PostMapping("/add")
-    public String addTeacher(@RequestBody Teacher teacher) {
-        try {
-            teacherService.addTeacher(teacher);
-            String message = teacher.getFirstName() + "," + teacher.getLastName() + "," + teacher.getContact().getEmail();
-            kafkaTemplate.send("teacher", message);
-            return "Teacher added";
-        } catch (TeacherException e) {
-            return e.getMessage();
-        }
+    public ResponseEntity<Teacher> addTeacher(@RequestBody Teacher teacher) {
+            return new ResponseEntity<>(teacherService.addTeacher(teacher), HttpStatus.OK);
+//            String message = teacher.getFirstName() + "," + teacher.getLastName() + "," + teacher.getContact().getEmail();
+//            kafkaTemplate.send("teacher", message);
     }
     @DeleteMapping("/delete/{id}")
-    public String deleteTeacher(@PathVariable int id) {
-        try{
-            teacherService.deleteTeacher(id);
-            return "Teacher deleted";
-        } catch (TeacherException e) {
-            return e.getMessage();
-        }
+    public ResponseEntity<String> deleteTeacher(@PathVariable int id) {
+        return new ResponseEntity<>(teacherService.deleteTeacher(id), HttpStatus.OK);
     }
-    @PutMapping("/update/{id}")  // TODO: 2020-04-30  update teacher
-    public String updateTeacher(@PathVariable int id) {
-        Teacher teacher = teacherService.getTeacher(id);
-        try {
-            teacherService.updateTeacher(teacher);
-            return "Teacher updated";
-        } catch (TeacherException e) {
-            return e.getMessage();
-        }
+    @PutMapping("/update")
+    public ResponseEntity<Teacher> updateTeacher(@RequestBody Teacher teacher) {
+        return new ResponseEntity<>(teacherService.updateTeacher(teacher), HttpStatus.OK);
     }
     @GetMapping("/get/{id}")
-    public String getTeacher(@PathVariable int id) {
-        try {
-            teacherService.getTeacher(id);
-        } catch (TeacherException e) {
-            return e.getMessage();
-        }
-        return teacherService.getTeacher(id).toString();
+    public ResponseEntity<Teacher> getTeacher(@PathVariable int id) {
+        return new ResponseEntity<>(teacherService.getTeacher(id), HttpStatus.OK);
     }
     @GetMapping("/getAll")
     public String getAllTeachers() {

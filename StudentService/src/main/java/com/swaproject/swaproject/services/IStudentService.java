@@ -10,7 +10,7 @@ public interface IStudentService {
     Student updateStudent(Student student);
 
 
-    void deleteStudent(String studentId);
+    String deleteStudent(String studentId);
 
 
     Student viewStudent(String studentId);
