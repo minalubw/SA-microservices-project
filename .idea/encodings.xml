@@ -9,6 +9,8 @@
     <file url="file://$PROJECT_DIR$/ConfigServer/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ElementService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ElementService/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/EmailService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/EmailService/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/RewardService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/RewardService/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SchoolService/src/main/java" charset="UTF-8" />

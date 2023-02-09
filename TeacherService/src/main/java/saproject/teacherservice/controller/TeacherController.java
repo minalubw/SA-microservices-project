@@ -2,14 +2,21 @@ package saproject.teacherservice.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 import saproject.teacherservice.ExceptionHandling.TeacherException;
 import saproject.teacherservice.domain.Teacher;
 import saproject.teacherservice.service.TeacherService;
 @RestController
-
 @RequestMapping("/teacher")
 public class TeacherController {
+
+    @Autowired
+    private KafkaTemplate<String, String> kafkaTemplate;
+
+
+
     @Autowired
     private TeacherService teacherService;
 
@@ -17,6 +24,8 @@ public class TeacherController {
     public String addTeacher(@RequestBody Teacher teacher) {
         try {
             teacherService.addTeacher(teacher);
+            String message = teacher.getFirstName() + "," + teacher.getLastName() + "," + teacher.getContact().getEmail();
+            kafkaTemplate.send("teacher", message);
             return "Teacher added";
         } catch (TeacherException e) {
             return e.getMessage();

@@ -28,6 +28,10 @@ public class Teacher {
     private TeachingClass teachingClass;
     @Embedded
     private Contact contact;
+    @Embedded
+    private User user;
+
+//object of teacher
 
 
 }
