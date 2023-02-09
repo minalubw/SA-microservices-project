@@ -1,0 +1,54 @@
+server:
+  port: 7079
+
+spring:
+  application:
+    name: EmailService
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: Email
+  main:
+    allow-bean-definition-overriding: true
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: teacher
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+
+
+
+#  spring.kafka.bootstrap-servers=localhost:9092
+#  spring.kafka.consumer.group-id=email-query
+#  spring.kafka.consumer.auto-offset-reset=earliest
+
+#
+#
+#  server.port=7080
+#
+#  spring.data.mongodb.host=localhost
+#  spring.data.mongodb.port=27017
+#  spring.data.mongodb.database=email
+#
+#
+#
+#  spring.kafka.bootstrap-servers=localhost:9092
+#  spring.kafka.consumer.group-id=email-query
+#  spring.kafka.consumer.auto-offset-reset=earliest
+#
+#  #spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+#  #spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.JsonDeserializer
+#  #
+#  #spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+#  #spring.kafka.producer.value-serializer=org.apache.kafka.common.serialization.JsonSerializer
+#
+#  kafka.topic.teacher=spring.kafka.template.default-topic
+#
+#
+#  logging.level.root=ERROR
+#  logging.level.org.springframework.web=ERROR
