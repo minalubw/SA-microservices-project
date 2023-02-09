@@ -5,8 +5,7 @@ spring:
     application:
         name: ElementService
 
-server:
-    port: 7074
+
 
 eureka:
     client:

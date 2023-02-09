@@ -11,6 +11,7 @@
         <module name="TeacherService" />
         <module name="UserApplication" />
         <module name="ElementService" />
+        <module name="PurchaseService" />
         <module name="SchoolService" />
         <module name="StudentService" />
         <module name="AvatarService" />
@@ -26,6 +27,7 @@
       <module name="ConfigServer" target="17" />
       <module name="ElementService" target="11" />
       <module name="EmailService" target="17" />
+      <module name="PurchaseService" target="17" />
       <module name="RewardService" target="17" />
       <module name="SA-Euruka" target="17" />
       <module name="SchoolService" target="17" />
@@ -41,6 +43,7 @@
       <module name="ConfigServer" options="-parameters" />
       <module name="ElementService" options="-parameters" />
       <module name="EmailService" options="-parameters" />
+      <module name="PurchaseService" options="-parameters" />
       <module name="RewardService" options="-parameters" />
       <module name="SA-Euruka" options="-parameters" />
       <module name="SchoolService" options="-parameters" />
