@@ -3,5 +3,5 @@ spring:
         config:
             server:
                 git:
-                    uri: C:\Users\minal\Documents\SA-Project\config
+                    uri: C:\Users\alaza\Documents\GitHub\SA-Project\config
 server.port: 8888
