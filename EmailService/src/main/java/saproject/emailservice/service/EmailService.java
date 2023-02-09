@@ -45,9 +45,8 @@ public class EmailService implements IEmailService{
         emailDAO.save(email);
     }
 
-    @Override
-    public Optional<Email> getEmail(int id) {
-            return emailDAO.findById(id);
+    public Email getEmail(String id) {
+            return emailDAO.findEmailByEmail(id);
     }
 
     @Override

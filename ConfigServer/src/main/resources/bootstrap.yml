@@ -3,5 +3,4 @@ spring:
     name: ConfigServer
   profiles:
     active: native
-server:
-  port: 7077
+

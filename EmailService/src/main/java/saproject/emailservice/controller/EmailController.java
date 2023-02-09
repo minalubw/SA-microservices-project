@@ -4,6 +4,8 @@ package saproject.emailservice.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import saproject.emailservice.service.EmailService;
@@ -16,10 +18,14 @@ public class EmailController {
     private EmailService emailService;
     @KafkaListener(topics = "teacher")
     public void sendEmail(@Payload String teacherEmail) {
-        emailService.addEmail(teacherEmail+"teacher");
+        emailService.addEmail(teacherEmail+","+"teacher");
     }
     @KafkaListener(topics = "student")
     public void sendEmailToStudent(@Payload String details) {
-        emailService.addEmail(details+"student");
+        emailService.addEmail(details+","+"student");
+    }
+    @GetMapping("/get/{email}")
+    public String getEmail(@PathVariable String email) {
+        return emailService.getEmail(email).getMessage();
     }
 }

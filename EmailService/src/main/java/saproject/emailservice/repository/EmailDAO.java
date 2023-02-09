@@ -7,4 +7,5 @@ import saproject.emailservice.domain.Email;
 
 @Repository
 public interface EmailDAO extends MongoRepository<Email, Integer> {
+    Email findEmailByEmail(String email);
 }

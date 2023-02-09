@@ -19,7 +19,7 @@ public class StudentController {
 
     @PostMapping ("/add")
     public Student addStudent(@RequestBody Student student) {
-        kafkaTemplate.send("student", student.getFName() + "," + student.getLName() + "," + student.getClass());
+        kafkaTemplate.send("student", student.getFirstName() + "," + student.getLastName() + "," + student.getClass());
         return studentService.addStudent(student);
 }
 
