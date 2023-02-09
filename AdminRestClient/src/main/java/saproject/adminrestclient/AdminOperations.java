@@ -17,6 +17,7 @@ import saproject.adminrestclient.DomainClasses.StudentDomain.Student;
 import saproject.adminrestclient.DomainClasses.teacher.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 @Component
@@ -45,40 +46,44 @@ public class AdminOperations {
         System.out.println("===================================================");
         System.out.println("===============>  School Details  <================");
         System.out.println("===================================================\n");
-        System.out.println("School Name:");
+        System.out.print("School Name:");
         String schoolName = scanner.nextLine();
-        System.out.println("School Address:");
+        System.out.print("School Address:");
         String schoolAddress = scanner.nextLine();
-        System.out.println("School Phone Number:");
+        System.out.print("School Phone Number:");
         String schoolPhoneNumber = scanner.nextLine();
-        System.out.println("School Email:");
+        System.out.print("School Email:");
         String schoolEmail = scanner.nextLine();
 
         System.out.println("===================================================");
         System.out.println("===============>  Class Details  <=================");
         System.out.println("===================================================\n");
-        System.out.println("Class group:");
+        System.out.print("Class group:");
         String classGroup = scanner.nextLine();
-        System.out.println("Class year:");
+        System.out.print("Class year:");
         String classYear = scanner.nextLine();
 
         System.out.println("===================================================");
         System.out.println("===============>  Contact Details  <===============");
         System.out.println("===================================================\n");
-        System.out.println("Teacher email:");
+        System.out.print("Teacher email:");
         String teacherEmail = scanner.nextLine();
-        System.out.println("Teacher phone number:");
+        System.out.print("Teacher phone number:");
         String teacherPhoneNumber = scanner.nextLine();
 
         System.out.println("===================================================");
         System.out.println("===============>  User Account  <==================");
         System.out.println("===================================================\n");
-        System.out.println("Username:");
+        System.out.print("Username:");
         String username = scanner.nextLine();
-        System.out.println("Password:");
+        System.out.print("Password:");
         String password = scanner.nextLine();
+        //////////// Creating contact //////////////
         Contact schoolContact = new Contact(schoolEmail, schoolPhoneNumber);
-        int id = restTemplate.getForObject(serverUrl+"/teacher/getAll",Integer.class);
+
+        /////////////////////////////////////////////
+        ResponseEntity<Integer> responseEntity = restTemplate.getForEntity(serverUrl+"/teacher/get/allNumber",Integer.class);
+
         int randomId = (int) (Math.random() * 1000);
         School school = new School(randomId,schoolName, schoolAddress,schoolContact);
         TeachingClass teachingClass = new TeachingClass(classGroup, classYear);
@@ -242,7 +247,16 @@ public class AdminOperations {
                         new saproject.adminrestclient.DomainClasses.StudentDomain.Contact("cs.miuiowa.edu",
                                 "123456789"));
         saproject.adminrestclient.DomainClasses.StudentDomain.TeachingClass tc = new saproject.adminrestclient.DomainClasses.StudentDomain.TeachingClass("A","2020");
-        Student student = new Student("999","John","Doe",1000,new Avatar(),new ArrayList<>(),school,tc);
+        saproject.adminrestclient.DomainClasses.StudentDomain.User user = new saproject.adminrestclient.DomainClasses.StudentDomain.User("johnny","meditate", saproject.adminrestclient.DomainClasses.StudentDomain.Role.STUDENT);
+//        try{
+//            ResponseEntity<User> userFromDB = restTemplate.getForEntity(serverUrl+"/user/add/"+user.getUsername(),User.class);
+//            System.out.println("User already exists in record");
+//        }catch (Exception e){
+//            System.out.println("User does not exist in record so user will be added first");
+//            restTemplate.postForLocation(serverUrl+"/user/add",user);
+//        }
+
+        Student student = new Student("999","John","Doe",1000,new Avatar(),new ArrayList<>(),school,tc,user);
         restTemplate.postForLocation(serverUrl+"/student/add",student); // instead of Object, use school
         System.out.println("Student with id: "+student.getStudentNumber()+" added successfully");
     } // checked
@@ -250,8 +264,10 @@ public class AdminOperations {
 
         try{
             System.out.print("Enter student id to remove: ");
-            int id = scanner.nextInt();
+            String id = scanner.nextLine();
             ResponseEntity<Student> responseEntity = restTemplate.getForEntity(serverUrl+"/student/"+id,Student.class);
+            saproject.adminrestclient.DomainClasses.StudentDomain.User userToBeDeleted = responseEntity.getBody().getUser();
+            restTemplate.delete(serverUrl+"/user/delete/"+userToBeDeleted.getUsername());
             restTemplate.delete(serverUrl+"/student/delete/"+id);
         }catch (Exception e){
             System.out.println("Student does not exist in record");
@@ -274,7 +290,7 @@ public class AdminOperations {
     }
     public  void getStudent(String serverUrl){ // return type school
         System.out.print("Enter student id to get ");
-        int id = scanner.nextInt();
+        String id = scanner.next().trim();
         try{
             ResponseEntity<Student> responseEntity = restTemplate.getForEntity(serverUrl+"/student/"+id,Student.class);
             Student student = responseEntity.getBody();
@@ -304,7 +320,7 @@ public class AdminOperations {
     } //checked
     public  void updateReward(String serverUrl){ // return type reward
         System.out.println("Enter reward id to update");
-        String id = scanner.nextLine();
+        String id = scanner.nextLine().trim();
         try {
             ResponseEntity<Reward> responseEntity = restTemplate.getForEntity(serverUrl + "/reward/" + id, Reward.class);
             Reward reward = responseEntity.getBody();

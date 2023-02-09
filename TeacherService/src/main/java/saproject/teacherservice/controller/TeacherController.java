@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import saproject.teacherservice.ExceptionHandling.TeacherException;
 import saproject.teacherservice.domain.Teacher;
 import saproject.teacherservice.service.TeacherService;
+
+import java.util.List;
+
 @RestController
 @RequestMapping("/teacher")
 public class TeacherController {
@@ -46,7 +49,11 @@ public class TeacherController {
     }
 
     @GetMapping("/getAll")
-    public String getAllTeachers() {
-        return teacherService.getAllTeachers().toString();
+    public List<Teacher> getAllTeachers() {
+        return teacherService.getAllTeachers() ;
+    }
+    @GetMapping("/get/allNumber")
+    public ResponseEntity<Integer> getNumberOfTeachers() {
+        return new ResponseEntity<>(teacherService.getNumberOfTeachers(), HttpStatus.OK);
     }
 }

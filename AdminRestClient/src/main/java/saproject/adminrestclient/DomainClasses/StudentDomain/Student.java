@@ -6,8 +6,6 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 @Data
 @Getter
 @Setter
@@ -23,7 +21,7 @@ public class Student {
     private List<Reward> rewardList = new ArrayList<>();
     private School school;
     private TeachingClass teachingClass;
-
+    private User user;
     public void addReward(Reward reward){
         this.rewardList.add(reward);
         System.out.println("Adding reward..."+ reward);
