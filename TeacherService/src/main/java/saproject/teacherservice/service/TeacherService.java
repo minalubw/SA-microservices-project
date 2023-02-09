@@ -6,6 +6,8 @@ import saproject.teacherservice.ExceptionHandling.TeacherException;
 import saproject.teacherservice.domain.Teacher;
 import saproject.teacherservice.repository.TeacherDAO;
 
+import java.util.List;
+
 
 @Service
 public class TeacherService {
@@ -51,8 +53,10 @@ public class TeacherService {
             return teacherRepository.findById(id).get();
 
     }
-    public Iterable<Teacher> getAllTeachers() {
+    public List<Teacher> getAllTeachers() {
         return teacherRepository.findAll();
     }
-
+    public Integer getNumberOfTeachers(){
+        return teacherRepository.findAll().size();
+    }
 }

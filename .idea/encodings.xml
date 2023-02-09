@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/APIGateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/APIGateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/AdminRestClient/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/AdminRestClient/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/AvatarService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/AvatarService/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ConfigServer/src/main/java" charset="UTF-8" />

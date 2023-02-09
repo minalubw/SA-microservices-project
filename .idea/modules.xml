@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/APIGateway/APIGateway.iml" filepath="$PROJECT_DIR$/APIGateway/APIGateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AdminRestClient/AdminRestClient.iml" filepath="$PROJECT_DIR$/AdminRestClient/AdminRestClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/AvatarService/AvatarService.iml" filepath="$PROJECT_DIR$/AvatarService/AvatarService.iml" />
       <module fileurl="file://$PROJECT_DIR$/ConfigServer/ConfigServer.iml" filepath="$PROJECT_DIR$/ConfigServer/ConfigServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/ElementService/ElementService.iml" filepath="$PROJECT_DIR$/ElementService/ElementService.iml" />
