@@ -37,7 +37,13 @@ public class userController {
 	
 	@GetMapping("/user/{username}")
 	public ResponseEntity<User> viewUser(@PathVariable("username") String username) {
-		return new ResponseEntity<User>(userService.viewUser(username), HttpStatus.OK);
+		try {
+			return new ResponseEntity<User>(userService.viewUser(username), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+		}
+
+
 	}
 
 
