@@ -3,4 +3,3 @@ spring:
     name: ConfigServer
   profiles:
     active: native
-
