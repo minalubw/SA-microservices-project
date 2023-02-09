@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "schools")
 public class School {
     @Id
+    private int id;
     private String schoolName;
     private String address;
 

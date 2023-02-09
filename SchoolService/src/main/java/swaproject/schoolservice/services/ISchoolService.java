@@ -4,8 +4,8 @@ import swaproject.schoolservice.domains.School;
 
 public interface ISchoolService {
    School addSchool(School school);
-   void removeSchool(String schoolName);
+   void removeSchool(int id);
    School updateSchool(School school);
-    School viewSchool(String schoolName);
+    School viewSchool(int schoolName);
 
 }

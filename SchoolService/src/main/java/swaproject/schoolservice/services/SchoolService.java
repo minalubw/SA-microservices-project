@@ -19,8 +19,8 @@ public class SchoolService implements ISchoolService{
     }
 
     @Override
-    public void  removeSchool(String schoolName) {
-        Optional<School> school = schoolRepository.findById(schoolName);
+    public void  removeSchool(int id) {
+        Optional<School> school = schoolRepository.findById(id);
         if (school.isPresent()){
             schoolRepository.delete(school.get());
         }
@@ -30,7 +30,7 @@ public class SchoolService implements ISchoolService{
 
     @Override
     public School updateSchool(School school) {
-        Optional<School> schoolForUpdate = schoolRepository.findById(school.getSchoolName());
+        Optional<School> schoolForUpdate = schoolRepository.findById(school.getId());
         if (schoolForUpdate.isPresent()) {
             schoolForUpdate.get().setSchoolName(school.getSchoolName());
             schoolForUpdate.get().setContact(school.getContact());
@@ -42,7 +42,7 @@ public class SchoolService implements ISchoolService{
     }
 
     @Override
-    public School viewSchool(String schoolName) {
+    public School viewSchool(int schoolName) {
         Optional<School> school1 = schoolRepository.findById(schoolName);
         if (school1.isPresent()){
             return school1.get();

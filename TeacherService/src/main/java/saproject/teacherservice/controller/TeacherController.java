@@ -38,8 +38,13 @@ public class TeacherController {
     }
     @GetMapping("/get/{id}")
     public ResponseEntity<Teacher> getTeacher(@PathVariable int id) {
-        return new ResponseEntity<>(teacherService.getTeacher(id), HttpStatus.OK);
+        Teacher teacher = teacherService.getTeacher(id);
+        if (teacher == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(teacher, HttpStatus.OK);
     }
+
     @GetMapping("/getAll")
     public String getAllTeachers() {
         return teacherService.getAllTeachers().toString();

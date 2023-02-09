@@ -17,14 +17,14 @@ public class SchoolController {
      return schoolService.addSchool(school);
 
         }
-  @GetMapping("/get/{schoolNumber}")
-   public School getSchool(@PathVariable String schoolName){
-     return schoolService.viewSchool(schoolName);
+  @GetMapping("/get/{id}")
+   public School getSchool(@PathVariable int id){
+     return schoolService.viewSchool(id);
     }
 
   @DeleteMapping("/delete/{id}")
-    public void deleteSchool(@PathVariable String schoolName){
-     schoolService.removeSchool(schoolName);
+    public void deleteSchool(@PathVariable int id){
+     schoolService.removeSchool(id);
   }
 
   @PutMapping("/update")
