@@ -1,22 +1,19 @@
-package com.swaproject.swaproject.domains;
+package teacherclient.domains;
 
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-@Document(collection = "students")
+@ToString
 @Data
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Student {
-    @Id
     private String studentNumber;
     private String firstName;
     private String lastName;

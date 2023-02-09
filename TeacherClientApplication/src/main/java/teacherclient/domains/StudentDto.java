@@ -1,4 +1,4 @@
-package saprojects.domains;
+package teacherclient.domains;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
