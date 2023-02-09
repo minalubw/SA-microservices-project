@@ -40,8 +40,9 @@ public class TeacherController {
             return e.getMessage();
         }
     }
-    @PutMapping("/update")
-    public String updateTeacher(@RequestBody Teacher teacher) {
+    @PutMapping("/update/{id}")  // TODO: 2020-04-30  update teacher
+    public String updateTeacher(@PathVariable int id) {
+        Teacher teacher = teacherService.getTeacher(id);
         try {
             teacherService.updateTeacher(teacher);
             return "Teacher updated";
