@@ -27,13 +27,13 @@ public class RewardController {
         return ResponseEntity.ok().body(rewardService.addReward(reward));
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<Reward> updateReward(@PathVariable("id") String id, @RequestBody Reward reward){
+    @PutMapping("/update/{rewardId}")
+    public ResponseEntity<Reward> updateReward(@PathVariable("rewardId") String id, @RequestBody Reward reward){
         return ResponseEntity.ok().body(rewardService.updateReward(id, reward));
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> removeReward(@PathVariable("id") String id){
+    @DeleteMapping("/delete/{rewardId}")
+    public ResponseEntity<String> removeReward(@PathVariable("rewardId") String id){
         return ResponseEntity.ok().body(rewardService.deleteReward(id));
     }
 }

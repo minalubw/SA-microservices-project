@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 import purchase.domain.*;
+import purchase.exception.PurchaseException;
 import purchase.services.IPurchaseService;
 
 @RestController
@@ -38,16 +39,21 @@ public class PurchaseController {
     public Student buyReward(@RequestBody RewardOrder rewardOrder){
         Student student = studentFeignClient.getStudent(rewardOrder.getStudentNumber());
         Reward reward = rewardFeignClient.getReward(rewardOrder.getRewardId());
-        Student updated = purchaseService.buyReward(student, reward);
+        Student updated = null;
+        try {
+            updated = purchaseService.buyReward(student, reward);
+        }catch (PurchaseException e){
+            System.out.println(e.getMessage());
+        }
         return studentFeignClient.updateStudent(updated);
     }
     @PutMapping("/reward/redeem")
     public Student redeemReward(@RequestBody RedeemRewardOrder redeemOrder){
         Student student = studentFeignClient.getStudent(redeemOrder.getStudentNumber());
         Element element = elementFeignClient.getElement(redeemOrder.getElementId());
-
         Student updated = purchaseService.redeemReward(student, element, redeemOrder.getRewardId());
         return studentFeignClient.updateStudent(updated);
+
     }
 
     @PutMapping("/teacher/givereward")

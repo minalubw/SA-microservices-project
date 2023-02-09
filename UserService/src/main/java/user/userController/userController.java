@@ -20,17 +20,17 @@ public class userController {
 	@Autowired
 	private UserService userService;
 	
-	@PostMapping("/user")
+	@PostMapping("/user/add")
 	public ResponseEntity<User> addUser(@RequestBody User user) {
 		return new ResponseEntity<User>(userService.addUser(user), HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/user/{username}")
+	@DeleteMapping("/user/delete/{username}")
 	public void deleteUser(@PathVariable String username) {
 		userService.removeUser(username);
 	}
 	
-	@PutMapping("/user/{username}")
+	@PutMapping("/user/update/{username}")
 	public ResponseEntity<User> updateUser(@PathVariable String username, @RequestBody User user) {
 		return new ResponseEntity<User>(userService.updateUser(username, user), HttpStatus.OK);
 	}

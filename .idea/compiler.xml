@@ -7,13 +7,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SA-Euruka" />
         <module name="TeacherService" />
+        <module name="StudentService" />
+        <module name="SA-Euruka" />
+        <module name="AdminRestClient" />
         <module name="UserApplication" />
         <module name="ElementService" />
         <module name="PurchaseService" />
         <module name="SchoolService" />
-        <module name="StudentService" />
         <module name="AvatarService" />
         <module name="RewardService" />
         <module name="ConfigServer" />
@@ -22,6 +23,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="AdminRestClient" target="17" />
       <module name="APIGateway" target="11" />
       <module name="AvatarService" target="17" />
       <module name="ConfigServer" target="17" />
@@ -39,6 +41,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="APIGateway" options="-parameters" />
+      <module name="AdminRestClient" options="-parameters" />
       <module name="AvatarService" options="-parameters" />
       <module name="ConfigServer" options="-parameters" />
       <module name="ElementService" options="-parameters" />
