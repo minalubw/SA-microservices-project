@@ -1,14 +1,13 @@
-package saprojects.domains;
+package teacherclient.domains;
+
 
 import lombok.*;
 
-@ToString
 @Data
 @Getter
 @Setter
 public class User {
 	
-
 	private String username;
 	private String password;
 	private Role role;
@@ -46,17 +45,5 @@ public class User {
 	}
 
 }
-enum Role {
-	ADMIN("ADMIN"), STUDENT("STUDENT"), TEACHER("TEACHER");
 
-	private String name;
-
-	Role(String name) {
-		this.name = name;
-	}
-
-	public String getName() {
-		return name;
-	}
-}
 
