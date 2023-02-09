@@ -1,4 +1,4 @@
-package com.swaproject.swaproject.domains;
+package saprojects.domains;
 
 
 import lombok.*;

@@ -12,11 +12,11 @@ public class TeacherService {
     @Autowired
     private TeacherDAO teacherRepository;
 
-    public void addTeacher(Teacher teacher) {
+    public Teacher addTeacher(Teacher teacher) {
         //int id = teacher.getSchool().getId();
-        teacherRepository.save(teacher);
+        return teacherRepository.save(teacher);
     }
-    public void deleteTeacher(int id) throws TeacherException {
+    public String deleteTeacher(int id) throws TeacherException {
 
             Teacher teacher = teacherRepository.findById(id).orElse(null);
             if(teacher == null) {
@@ -24,10 +24,11 @@ public class TeacherService {
             }
             else {
                 teacherRepository.deleteById(id);
+                return "Teacher Deleted!";
             }
 
     }
-    public void updateTeacher(Teacher teacher) throws TeacherException {
+    public Teacher updateTeacher(Teacher teacher) throws TeacherException {
 
             Teacher teacher1 = teacherRepository.findById(teacher.getId())
                                                 .isPresent() ? teacherRepository.findById(teacher.getId()).get()
@@ -40,7 +41,7 @@ public class TeacherService {
                 teacher1.setLastName(teacher.getLastName());
                 teacher1.setSchool(teacher.getSchool());
                 teacher1.setContact(teacher.getContact());
-                teacherRepository.save(teacher1);
+                return teacherRepository.save(teacher1);
             }
     }
     public Teacher getTeacher(int id) throws TeacherException{

@@ -13,23 +13,24 @@ public class AvatarService implements IAvatarService {
     private AvatarDAO avatarDAO;
 
 
-    public void addAvatar(Avatar avatar){
-        avatarDAO.save(avatar);
+    public Avatar addAvatar(Avatar avatar){
+        return avatarDAO.save(avatar);
     }
-    public void deleteAvatar(int id) throws AvatarException {
+    public String deleteAvatar(int id) throws AvatarException {
         Avatar avatar= avatarDAO.findById(id).orElse(null);
         if (avatar == null)
             throw new AvatarException("Avatar not found");
         else {
             avatarDAO.deleteById(id);
+            return "Avatar deleted!";
         }
     }
-    public void updateAvatar(Avatar avatar) throws AvatarException {
+    public Avatar updateAvatar(Avatar avatar)  {
         Avatar avatar1 = avatarDAO.findById(avatar.getId()).orElse(null);
         if (avatar1 == null)
             throw new AvatarException("Avatar not found");
         else {
-            avatarDAO.save(avatar);
+            return avatarDAO.save(avatar);
         }
     }
 
