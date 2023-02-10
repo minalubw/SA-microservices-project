@@ -16,6 +16,8 @@
         <option value="$PROJECT_DIR$/EmailService/pom.xml" />
         <option value="$PROJECT_DIR$/PurchaseService/pom.xml" />
         <option value="$PROJECT_DIR$/AdminRestClient/pom.xml" />
+        <option value="$PROJECT_DIR$/StudentClientApplication/pom.xml" />
+        <option value="$PROJECT_DIR$/TeacherClientApplication/pom.xml" />
       </list>
     </option>
   </component>

@@ -8,14 +8,16 @@
       <module fileurl="file://$PROJECT_DIR$/ConfigServer/ConfigServer.iml" filepath="$PROJECT_DIR$/ConfigServer/ConfigServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/ElementService/ElementService.iml" filepath="$PROJECT_DIR$/ElementService/ElementService.iml" />
       <module fileurl="file://$PROJECT_DIR$/EmailService/EmailService.iml" filepath="$PROJECT_DIR$/EmailService/EmailService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-service/EurekaServer.iml" filepath="$PROJECT_DIR$/eureka-service/EurekaServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/PurchaseService/PurchaseService.iml" filepath="$PROJECT_DIR$/PurchaseService/PurchaseService.iml" />
       <module fileurl="file://$PROJECT_DIR$/RewardService/RewardService.iml" filepath="$PROJECT_DIR$/RewardService/RewardService.iml" />
-      <module fileurl="file://$PROJECT_DIR$/eureka-service/SA-Euruka.iml" filepath="$PROJECT_DIR$/eureka-service/SA-Euruka.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/SA-Project.iml" filepath="$PROJECT_DIR$/.idea/SA-Project.iml" />
       <module fileurl="file://$PROJECT_DIR$/SchoolService/SchoolService.iml" filepath="$PROJECT_DIR$/SchoolService/SchoolService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StudentClientApplication/StudentClientApplication.iml" filepath="$PROJECT_DIR$/StudentClientApplication/StudentClientApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/StudentService/StudentService.iml" filepath="$PROJECT_DIR$/StudentService/StudentService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TeacherClientApplication/TeacherClientApplication.iml" filepath="$PROJECT_DIR$/TeacherClientApplication/TeacherClientApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/TeacherService/TeacherService.iml" filepath="$PROJECT_DIR$/TeacherService/TeacherService.iml" />
-      <module fileurl="file://$PROJECT_DIR$/UserService/UserApplication.iml" filepath="$PROJECT_DIR$/UserService/UserApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UserService/UserService.iml" filepath="$PROJECT_DIR$/UserService/UserService.iml" />
     </modules>
   </component>
 </project>
